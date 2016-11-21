@@ -1,3 +1,4 @@
+from distutils.errors import DistutilsSetupError
 from pkg_resources import get_distribution
 from subprocess import check_output
 
@@ -15,6 +16,21 @@ def validate_version_format(dist, attr, value):
         version = format_version(version=version, fmt=value)
     dist.metadata.version = version
 
+
+def set_package_info(dist, attr, value):
+    """
+    Write the package version and package name
+    into a file.
+    """
+    #1. Check that the version is set
+    if dist.metadata.version:
+        if not hasattr(dist, 'version_format'):
+             raise DistutilsSetupError('`version_format` must be set.')
+        validate_version_format(dist, 'version_format', dist.version_format)
+    #2. Write the version and name into the file
+    with open(value, 'w') as f:
+        f.write('__version__ = "{0}"\n'.format(dist.metadata.version))
+        f.write('__name__ = "{0}"'.format(dist.get_name()))
 
 def format_version(version, fmt=fmt):
     parts = version.split('-')

@@ -23,6 +23,7 @@ this package allows to extract it from the underlying Git repository:
     setup(
         name='foobar',
         version_format='{tag}.dev{commitcount}+{gitsha}',
+        package_info='foobar/__pkg__.py',
         setup_requires=['setuptools-git-version'],
         ...)
 
@@ -30,7 +31,14 @@ this package allows to extract it from the underlying Git repository:
 Changes
 -------
 
+1.0.5 - 2016-11-21
+++++++++++++++++++
+
+- [feature] add *package_info* which contains the package name and package version.
+  Do not forget to add the *package_info* file into your .gitignore.
+
 1.0.4 - 2016-06-22
+++++++++++++++++++
 
 - [feature] allow to build a package using a git-based version without modifying it upfront
 
@@ -56,4 +64,3 @@ Changes
 ++++++++++++++++
 
 - initial public release
-

@@ -3,10 +3,8 @@ from setuptools import setup
 
 setup(
     name='setuptools-git-version',
-    version='1.0.4',
-    url='https://github.com/pyfidelity/setuptools-git-version',
-    author='pyfidelity UG',
-    author_email='mail@pyfidelity.com',
+    version='1.0.5',
+    url='https://github.com/luxe-eng/setuptools-git-version',
     description='Automatically set package version from Git.',
     license='http://opensource.org/licenses/MIT',
     classifiers=[
@@ -22,5 +20,6 @@ setup(
     entry_points="""
         [distutils.setup_keywords]
         version_format = setuptools_git_version:validate_version_format
+        package_info = setuptools_git_version:set_package_info
     """,
 )
