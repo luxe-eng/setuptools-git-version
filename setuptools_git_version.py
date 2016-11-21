@@ -23,7 +23,7 @@ def set_package_info(dist, attr, value):
     into a file.
     """
     #1. Check that the version is set
-    if dist.metadata.version:
+    if not dist.metadata.version:
         if not hasattr(dist, 'version_format'):
              raise DistutilsSetupError('`version_format` must be set.')
         validate_version_format(dist, 'version_format', dist.version_format)

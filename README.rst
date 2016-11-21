@@ -35,7 +35,7 @@ Changes
 ++++++++++++++++++
 
 - [feature] add *package_info* which contains the package name and package version.
-  Do not forget to add the *package_info* file into your .gitignore.
+|  Do not forget to add the *package_info* file into your .gitignore.
 
 1.0.4 - 2016-06-22
 ++++++++++++++++++
